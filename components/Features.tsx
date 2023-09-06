@@ -13,7 +13,7 @@ import {
 const Features: FC = () => {
     return (
         <Box
-            bg="#BEBC56"
+            bg="blue.400"
             
         >
             <Container maxW={'7xl'}>

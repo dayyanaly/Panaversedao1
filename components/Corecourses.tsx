@@ -1,152 +1,161 @@
-"use client";
-import { ReactNode } from 'react';
 import {
   Box,
-  Stack,
-  HStack,
+  Container,
   Heading,
-  Text,
-  VStack,
+  Image,
+  Link,
+  Stack,
   useColorModeValue,
-  List,
-  ListItem,
-  ListIcon,
-  Button,
-} from '@chakra-ui/react';
+  VStack,
+} from "@chakra-ui/react";
+import React, { ReactNode, useEffect, useState } from "react";
+import { Text } from "@chakra-ui/react";
+import Head from "next/head";
+import styles from "./Testimonial.module.css"
 
-function PriceWrapper({ children }: { children: ReactNode }) {
+interface TestimonialProps {
+  children: ReactNode;
+}
+
+const Testimonial = ({ children }: TestimonialProps) => {
   return (
-    <Box
-      mb={4}
-      shadow="base"
-      borderWidth="1px"
-      alignSelf={{ base: 'center', lg: 'flex-start' }}
-      borderColor={useColorModeValue('gray.200', 'gray.500')}
-      borderRadius={'xl'}>
+    <Box mb={12} className={styles.testimonial}>
       {children}
     </Box>
   );
-}
+};
 
-export default function CoreCourse() {
+const TestimonialContent = ({ children }: { children: ReactNode }) => {
+ 
   return (
-    <><><Box py={12}>
-      <VStack spacing={2} textAlign="center">
-        <Heading as="h1" fontSize="4xl">
-          CORE COURSES
-        </Heading>
-        <Text fontSize="lg" color={'gray.500'}>The first three quarters are shared by all specialties and are dedicated to studying Object-Oriented Programming and cutting-edge Full-Stack Web 2.0 development. It is going to be a fifteen-month-long hybrid program that includes both onsite and online classes and is divided into five quarters of 13 weeks each </Text>
-        <Heading as="h1" fontSize="4xl">
-          COMMON IN ALL
-        </Heading>
-
-        <Text fontSize="lg" color={'gray.500'}>
-          The first three quarters are shared by all specialties and are dedicated to studying Object-Oriented Programming and cutting-edge Full-Stack Web 2.0 development. It is going to be a fifteen-month-long hybrid program that includes both onsite and online classes and is divided into five quarters of 13 weeks each
-          Every participant of the program will start by completing the following three core courses:
-        </Text>
-      </VStack>
+    <>
       <Stack
-        direction={{ base: 'column', md: 'row' }}
-        textAlign="center"
-        justify="center"
-        
-        spacing={{ base: 4, lg: 10 }}
-        
-        py={10}>
-        <PriceWrapper>
-          <Box py={4} px={12}>
-            <Text fontWeight="500" fontSize="2xl">
-              QUARTER I
-            </Text>
-
-          </Box>
-          <VStack
-            bg={useColorModeValue('teal.500', 'blue.700')}
-            py={4}
-            borderBottomRadius={'xl'}>
-            <List spacing={3} textAlign="start" px={12}>
-              <ListItem>
-                CS-101: Object-Oriented
-
-              </ListItem>
-              <ListItem>
-                Programming using TypeScript and
-              </ListItem>
-              <ListItem>Typescript for React</ListItem>
-            </List>
-
-          </VStack>
-        </PriceWrapper>
-
+        className={styles["testimonial-content"]}
+       bgColor={"blue.400"}
+        boxShadow={"lg"}
+        p={8}
+        rounded={"3xl"}
+        align={"center"}
+        pos={"relative"}
+        _after={{
+          content: `""`,
+          w: 5,
+          h: 5,
+          borderTopColor: useColorModeValue("white", "gray.800"),
+          pos: "absolute",
+          bottom: "-16px",
+          left: "50%",
+          transform: "translateX(-50%)",
+        }}
+      >
+        {children}
       </Stack>
-
-
-    </Box><Stack
-      direction={{ base: 'column', md: 'row' }}
-      textAlign="center"
-      justify="center"
-      
-      spacing={{ base: 4, lg: 10 }}
-     
-      py={10}>
-        <PriceWrapper>
-          <Box py={4} px={12}>
-            <Text fontWeight="500" fontSize="2xl">
-              QUARTER II
-            </Text>
-
-          </Box>
-          <VStack
-            bg={useColorModeValue('teal.500', 'blue.700')}
-            py={4}
-            borderBottomRadius={'xl'}>
-            <List spacing={3} textAlign="start" px={12}>
-              <ListItem>
-                W2-201: Developing Planet-Scale
-              </ListItem>
-              <ListItem>
-                Web 2.0 Apps and APIs using 
-
-              </ListItem>
-              <ListItem>Next.js 13 and Cloud Development</ListItem>
-             <ListItem> Kit (CDK) for Terraform</ListItem> 
-            </List>
-
-          </VStack>
-        </PriceWrapper>
-
-      </Stack></><Stack
-        direction={{ base: 'column', md: 'row' }}
-        textAlign="center"
-        justify="center"
-      
-        spacing={{ base: 4, lg: 10 }}
-        
-        py={10}>
-        <PriceWrapper>
-          <Box py={4} px={12}>
-            <Text fontWeight="500" fontSize="2xl">
-              QUARTER III
-            </Text>
-
-          </Box>
-          <VStack
-            bg={useColorModeValue('teal.500', 'blue.700')}
-            py={4}
-            borderBottomRadius={'xl'}>
-            <List spacing={3} textAlign="start" px={12}>
-              <ListItem>
-              $-101: Dollar Making Bootcamp - 
-              </ListItem>
-              <ListItem>
-              Full-Stack Template and API Product Development  
-              </ListItem>
-              <ListItem>API Product Development  </ListItem>
-            </List>
-
-          </VStack>
-        </PriceWrapper>
-
-      </Stack></>
+    </>
   );
-}
+};
+
+const TestimonialHeading = ({ children }: { children: ReactNode }) => {
+  return (
+    <Heading
+      as={"h4"}
+      textAlign={{ base: "center", md: "left" }}
+      color={"gray.700"}
+      fontSize={"3xl"}
+    >
+      {children}
+    </Heading>
+  );
+};
+
+const TestimonialText = ({ children }: { children: ReactNode }) => {
+  return (
+    <Text
+      textAlign={"center"}
+      color={useColorModeValue("white", "white")}
+      fontSize={"lg"}
+    >
+      {children}
+    </Text>
+  );
+};
+
+const Content = () => {
+  return (
+    <Box padding={10}>
+      <VStack>
+        <Box>
+         
+
+
+        </Box>
+      </VStack>
+      <Box  mt={["-16", "-32"]} mb={["-16", "-32"]}>
+        <Container maxW={"2xl"} py={[20, 40]} as={Stack} spacing={[6, 10]}>
+          <Stack spacing={[4, 5]} align={"center"}>
+            <Heading
+              as="h1"
+              size={["xl", "2xl", "3xl"]}
+              color={"black.700"}
+              textAlign={"center"}
+            >
+              Common Quarters In All Specializations:
+            </Heading>
+          </Stack>
+
+          <VStack
+            direction={{ base: "column", md: "row" }}
+            spacing={{ base: 8, md: 12, lg: 12 }}
+          >
+            <Box>
+              <Testimonial>
+         
+                  <TestimonialContent>
+                    <TestimonialHeading>
+                      Quarter I (Core) CS-101:
+                    </TestimonialHeading>
+                    <TestimonialText>
+                      Object-Oriented Programming using TypeScript
+                    </TestimonialText>
+                  </TestimonialContent>
+                
+              </Testimonial>
+              <Testimonial>
+             
+                  <TestimonialContent>
+                    <TestimonialHeading>
+                      Quarter II (Core) W2-201:
+                    </TestimonialHeading>
+                    <TestimonialText>
+                      Developing Planet-Scale Web 2.0 Serverless Cloud Cloud
+                      Apps and APIs using Next.js 13 and Cloud Development Kit
+                      (CDK) for Terraform
+                    </TestimonialText>
+                  </TestimonialContent>
+                
+              </Testimonial>
+              <Testimonial>
+                
+                  <TestimonialContent>
+                    <TestimonialHeading>
+                      Quarter III (Core) $-101:
+                    </TestimonialHeading>
+                    <TestimonialText>
+                      Dollar Making Bootcamp - Full-Stack Template and API
+                      Product Development
+                    </TestimonialText>
+                  </TestimonialContent>
+                
+              </Testimonial>
+            </Box>
+          </VStack>
+        </Container>
+        </Box>
+            
+            
+          
+    
+      </Box>
+  );
+};
+
+export default Content;

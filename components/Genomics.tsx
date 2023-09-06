@@ -1,103 +1,149 @@
-"use client";
-import { ReactNode } from 'react';
 import {
   Box,
-  Stack,
-  HStack,
+  Container,
   Heading,
-  Text,
-  VStack,
+  Image,
+  Link,
+  Stack,
   useColorModeValue,
-  List,
-  ListItem,
-  ListIcon,
-  Button,
-} from '@chakra-ui/react';
+  VStack,
+} from "@chakra-ui/react";
+import React, { ReactNode, useEffect, useState } from "react";
+import { Text } from "@chakra-ui/react";
+import Head from "next/head";
+import styles from "./Testimonial.module.css"
 
-function PriceWrapper({ children }: { children: ReactNode }) {
+interface TestimonialProps {
+  children: ReactNode;
+}
+
+const Testimonial = ({ children }: TestimonialProps) => {
   return (
-    <Box
-      mb={4}
-      shadow="base"
-      borderWidth="1px"
-      alignSelf={{ base: 'center', lg: 'flex-start' }}
-      borderColor={useColorModeValue('gray.200', 'gray.500')}
-      borderRadius={'xl'}>
+    <Box mb={12} className={styles.testimonial}>
       {children}
     </Box>
   );
-}
+};
 
-export default function CoreCourse() {
+const TestimonialContent = ({ children }: { children: ReactNode }) => {
+ 
   return (
-    <><Box py={12}>
-      <VStack spacing={2} textAlign="center">
-        
-        <Heading as="h1" fontSize="4xl">
-          5- GENOMICS AND BIOINFORMATICS SPECIALIZATION
-        </Heading>
-        <Text fontSize="lg" color={'gray.500'}>Genomics is the study of the total genetic makeup of individual organisms, and how this genetic information is structured, functions, and has evolved; bioinformatics encompasses a diverse range of analytical methods and tools applied to genomic data. This Specialization focus on performing complex bioinformatics analysis using the most essential Python libraries and applications</Text>
-
-
-      </VStack>
+    <>
       <Stack
-        direction={{ base: 'column', md: 'row' }}
-        textAlign="center"
-        justify="center"
-        spacing={{ base: 4, lg: 10 }}
-        py={10}>
-        <PriceWrapper>
-          <Box py={4} px={12}>
-            <Text fontWeight="500" fontSize="2xl">
-              QUARTER IV
-            </Text>
-
-          </Box>
-          <VStack
-            bg={useColorModeValue('teal.500', 'blue.700')}
-            py={4}
-            borderBottomRadius={'xl'}>
-            <List spacing={3} textAlign="start" px={12}>
-              <ListItem>
-              Bio-351: Python for Biologists
-              </ListItem>
-             
-
-            </List>
-
-          </VStack>
-        </PriceWrapper>
-
+        className={styles["testimonial-content"]}
+       bgColor={"blue.400"}
+        boxShadow={"lg"}
+        p={8}
+        rounded={"3xl"}
+        align={"center"}
+        pos={"relative"}
+        _after={{
+          content: `""`,
+          w: 5,
+          h: 5,
+          borderTopColor: useColorModeValue("white", "gray.800"),
+          pos: "absolute",
+          bottom: "-16px",
+          left: "50%",
+          transform: "translateX(-50%)",
+        }}
+      >
+        {children}
       </Stack>
-
-    </Box><Stack
-      direction={{ base: 'column', md: 'row' }}
-      textAlign="center"
-      justify="center"
-      spacing={{ base: 4, lg: 10 }}
-      py={10}>
-        <PriceWrapper>
-          <Box py={4} px={12}>
-            <Text fontWeight="500" fontSize="2xl">
-              QUARTER V
-            </Text>
-
-          </Box>
-          <VStack
-            bg={useColorModeValue('teal.500', 'blue.700')}
-            py={4}
-            borderBottomRadius={'xl'}>
-            <List spacing={3} textAlign="start" px={12}>
-              <ListItem>
-              Bio-361: Bioinformatics with Python
-              </ListItem>
-              
-              
-            </List>
-
-          </VStack>
-        </PriceWrapper>
-
-      </Stack></>
+    </>
   );
-}
+};
+
+const TestimonialHeading = ({ children }: { children: ReactNode }) => {
+  return (
+    <Heading
+      as={"h4"}
+      textAlign={{ base: "center", md: "left" }}
+      color={"gray.700"}
+      fontSize={"3xl"}
+    >
+      {children}
+    </Heading>
+  );
+};
+
+const TestimonialText = ({ children }: { children: ReactNode }) => {
+  return (
+    <Text
+      textAlign={"center"}
+      color={useColorModeValue("white", "white")}
+      fontSize={"lg"}
+    >
+      {children}
+    </Text>
+  );
+};
+
+const Content = () => {
+  return (
+    <Box padding={10}>
+      <VStack>
+        <Box>
+          
+          
+
+          
+        </Box>
+      </VStack>
+      <Box  mt={["-16", "-32"]} mb={["-16", "-32"]}>
+        <Container maxW={"2xl"} py={[20, 40]} as={Stack} spacing={[6, 10]}>
+          <Stack spacing={[4, 5]} align={"center"}>
+            <Heading
+              as="h1"
+              size={["xl", "2xl", "3xl"]}
+              color={"black.700"}
+              textAlign={"center"}
+            >
+           Genomics And Bioinformatics:
+            </Heading>
+          </Stack>
+
+          <VStack
+            direction={{ base: "column", md: "row" }}
+            spacing={{ base: 8, md: 12, lg: 12 }}
+          >
+            <Box>
+              <Testimonial>
+               
+                  <TestimonialContent>
+                    <TestimonialHeading>
+                    Quarter IV:
+ 
+                    </TestimonialHeading>
+                    <TestimonialText>
+                    Bio-351: Python for Biologists
+                    </TestimonialText>
+                  </TestimonialContent>
+             
+              </Testimonial>
+              <Testimonial>
+                
+                  <TestimonialContent>
+                    <TestimonialHeading>
+                      Quarter V:
+                    </TestimonialHeading>
+                    <TestimonialText>
+                    Bio-361: Bioinformatics with Python
+                    </TestimonialText>
+                  </TestimonialContent>
+                
+              </Testimonial>
+             
+            </Box>
+          </VStack>
+        </Container>
+        </Box>
+            
+            
+          
+    
+      </Box>
+  );
+};
+
+export default Content;

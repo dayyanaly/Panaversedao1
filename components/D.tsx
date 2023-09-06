@@ -1,95 +1,42 @@
 "use client";
-import { FC } from "react";
 import {
-    Heading,
     Stack,
-    Text,
-    Box,
-    Container,
     Flex,
-    Image
-} from '@chakra-ui/react';
-
-const E: FC = () => {
-    return (
-        <Box
-            bg="#BEBC56"
-            
-        >
-            <Container maxW={'7xl'}>
-                <Stack
-                    align={'center'}
-                    spacing={{ base: 8, md: 10 }}
-                    py={{ base: 20, md: 28 }}
-                    direction={{ base: 'column', md: 'row' }}
-                >
-                    <Stack flex={1} spacing={{ base: 5, md: 10 }}
-                    >
-                        <Heading
-                            as="h1"
-                            color="black"
-                            lineHeight={1.2}
-                            fontWeight={"bold"}
-                            fontSize={{ base: '2xl', sm: '3xl', lg: '4xl' }}
-                        >
-                           METAVERSE WITH IOT AND AMBIENT COMPUTING
-
-                        </Heading>
-                        <Text
-                            fontSize={{ base: 15, md: 20 }}
-                            color={'white'}
-                            lineHeight={1.4}
-                            pb={{ base: "2", md: "1" }}
-                        >
-                          
-                          The Metaverse has the potential to be used in conjunction with IoT (Internet of Things) and ambient computing to create new and innovative experiences for users.
-
+    Button,
+    Text,
+    VStack,
+    useBreakpointValue,
+  } from '@chakra-ui/react';
+import Link from 'next/link';
   
-                         </Text>
-                        
-                        <Text
-                            fontSize={{ base: 15, md: 20 }}
-                            color={'white'}
-                            lineHeight={1.4}
-                            pb={{ base: "2", md: "1" }}
-                        >
-
-In IoT, devices are connected to the internet and can communicate with each other, often without human intervention. By integrating IoT devices into the Metaverse, users could interact with physical devices in a virtual world. For example, a user could control the temperature of their home using a virtual thermostat within the Metaverse.
-
-In ambient computing, the integration of sensors and other devices into everyday objects could be used to enhance the immersive experience of the Metaverse. For example, a user's wearable device could detect changes in their physical state, such as increased heart rate, and adjust the virtual environment accordingly to create a more engaging and personalized experience.
-
-Overall, the Metaverse could be used to bridge the gap between the physical and digital worlds, creating new opportunities for innovation and creativity. By integrating IoT and ambient computing technologies, the Metaverse could become an even more immersive and intuitive experience for users.
-
-                    </Text>
-                    </Stack>
-                    <Flex
-                        flex={1}
-                        justify={'center'}
-                        align={'center'}
-                        position={'relative'}
-                        w={'full'}>
-                        <Box
-                            position={'relative'}
-                            rounded={'2xl'}
-                            boxShadow={'3xl'}
-                            width={'full'}
-                            overflow={'hidden'}>
-                            <Image
-                                alt={'Hero Image'}
-                                fit={'cover'}
-                                align={'center'}
-                                w={'100%'}
-                                h={'100%'}
-                                src={
-                                    "https://i.ibb.co/F3R5PGV/0x0.jpg "
-                                }
-                            />
-                        </Box>
-                    </Flex>
-                </Stack>
-            </Container>
-        </Box>
+  export default function D() {
+    return (
+      <Flex
+        w={'full'}
+        h={'100vh'}
+        backgroundImage={
+          'url(https://img.freepik.com/free-photo/glowing-gold-spiral-wet-with-vibrant-colors-generated-by-ai_188544-39958.jpg?w=826&t=st=1686255578~exp=1686256178~hmac=3446660a9e9801761dabec2a42321b29e926543f6952cff7d5f495518d82e7f6)'
+        }
+        backgroundSize={'cover'}
+        backgroundPosition={'center center'}>
+        <VStack
+          w={'full'}
+          justify={'center'}
+          px={useBreakpointValue({ base: 4, md: 8 })}
+          bgGradient={'linear(to-r, blackAlpha.600, transparent)'}>
+          <Stack maxW={'2xl'} align={'flex-start'} spacing={6}>
+            <Text
+              color={'WHITE'}
+              fontWeight={700}
+              lineHeight={1.2}
+              fontSize={useBreakpointValue({ base: '3xl', md: '4xl' })}>
+      Iot And Ambient Computing
+            </Text>
+            <Stack direction={'row'}>
+         
+            </Stack>
+          </Stack>
+        </VStack>
+      </Flex>
     );
-};
-
-export default E;
+  }

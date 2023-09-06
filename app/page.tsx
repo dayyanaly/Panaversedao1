@@ -10,7 +10,7 @@ const Home: FC = () => {
     return (
         <main style={{ marginTop: "80px" }}>
             <HeroSection />
-            <Features />
+            <Features/>
             <Outcome />
             
         </main>

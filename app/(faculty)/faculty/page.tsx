@@ -20,16 +20,7 @@ const t: FC = () => {
         <main style={{ marginTop: "80px" }}></main>
         
         <T1info/>
-        <Teacher1 />
-        <T2info/>
-        <Teacher2 />
-        <T3info/>
-        <Teacher3 />
-        <T4info/>
-        <Teacher4 />
-        <T5info/>
-        <Teacher5 />
-
+        
        </>
     )
 }

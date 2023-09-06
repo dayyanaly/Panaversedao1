@@ -31,7 +31,7 @@ const c: FC = () => {
       <D />
       <Iot />
       <E />
-      <Genomics />
+      <Genomics/>
       <F />
       <Network />
       

@@ -1,0 +1,10 @@
+.testimonial:hover {
+    transform: scale(1.09);
+    transition: transform 0.3s ease-in-out;
+    z-index: 5;
+  }
+  
+  .testimonial:hover .testimonial-content {
+   
+    box-shadow: 6px 4px 10px rgba(10, 108, 75, 0.25);
+  }

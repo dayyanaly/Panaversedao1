@@ -1,96 +1,228 @@
 "use client";
-import { FC } from "react";
+import { ReactNode } from 'react';
 import {
-    Heading,
-    Stack,
-    Text,
-    Box,
-    Container,
-    Flex,
-    Image
+  Box,
+  Flex,
+  Heading,
+  Text,
+  Stack,
+  Container,
+  Avatar,
+  useColorModeValue,
+  Button,
+  Center,
 } from '@chakra-ui/react';
+import Link from 'next/link';
+import { SiLinkedin } from 'react-icons/si';
 
-const C: FC = () => {
-    return (
-        <Box
-            bg="#BEBC56"
-            
-        >
-            <Container maxW={'7xl'}>
-                <Stack
-                    align={'center'}
-                    spacing={{ base: 8, md: 10 }}
-                    py={{ base: 20, md: 28 }}
-                    direction={{ base: 'column', md: 'row' }}
-                >
-                    <Stack flex={1} spacing={{ base: 5, md: 10 }}
-                    >
-                        <Heading
-                            as="h1"
-                            color="black"
-                            lineHeight={1.2}
-                            fontWeight={"bold"}
-                            fontSize={{ base: '2xl', sm: '3xl', lg: '4xl' }}
-                        >
-                          ZIA KHAN
-
-                        </Heading>
-                        <Text
-                            fontSize={{ base: 15, md: 20 }}
-                            color={'white'}
-                            lineHeight={1.4}
-                            pb={{ base: "2", md: "1" }}
-                        >
-                          CEO of Panacloud, the world’s first Integrated API Ownership Economy, Crowdfunding, and Development Platform. Volunteer COO of PIAIC, an initiative by the President of Pakistan for AI and computing mass education. Mentor and software developer with 20+ years of expertise in cloud and serverless computing, software design, project management, and API and App development. Expert in concept, business modeling & strategy development for startups, specializing in DeFi and token economics. Mentored and trained hundreds of thousands of developers. Triple masters degrees in business administration, engineering, and finance from Arizona State University. Master in Economics from KU. Certified Public Accountant and Certified Management Accountant in USA.
-
-
-                         </Text>
-                       
-.
-                        <Text
-                            fontSize={{ base: 15, md: 20 }}
-                            color={'white'}
-                            lineHeight={1.4}
-                            pb={{ base: "2", md: "1" }}
-                        >
-                           
-                           Extensive experience in software architecture, design, development, implementation, and integration. Worked as a developer in Silicon Valley for 7 years. Hands-on work including thousands of hours of development work logged recently resulting in multiple successful projects for cutting edge startups like Panacloud, OpenPD, Datasplash, FreshAir Sensor, Tallyfy, Cloudspot, OnSeen, Unicharts, etc.
-
-Worked with a combination of Agile, Lean Startup, and Design Thinking concepts and methodologies. Excellent communicator, mentor, instructor, and coach. 
-
-Received Microsoft's Most Valuable Professional (MVP) awards for eight consecutive years in client and cloud technologies.
-
-
-                    </Text>
-                    </Stack>
-                    <Flex
-                        flex={1}
-                        justify={'center'}
-                        align={'center'}
-                        position={'relative'}
-                        w={'full'}>
-                        <Box
-                            position={'relative'}
-                            rounded={'2xl'}
-                            boxShadow={'3xl'}
-                            width={'full'}
-                            overflow={'hidden'}>
-                            <Image
-                                alt={'Hero Image'}
-                                fit={'cover'}
-                                align={'center'}
-                                w={'100%'}
-                                h={'100%'}
-                                src={
-                                    "https://i.ibb.co/KV5n7Ch/1638368405154.jpg"
-                                }
-                            />
-                        </Box>
-                    </Flex>
-                </Stack>
-            </Container>
-        </Box>
-    );
+const Testimonial = ({ children }: { children: ReactNode }) => {
+  return <Box>{children}</Box>;
 };
 
-export default C;
+const TestimonialContent = ({ children }: { children: ReactNode }) => {
+  return (
+    <Stack
+      bg={useColorModeValue('white', 'gray.800')}
+      boxShadow={'lg'}
+      p={8}
+      rounded={'xl'}
+      align={'center'}
+      pos={'relative'}
+      _after={{
+        content: `""`,
+        w: 0,
+        h: 0,
+        borderLeft: 'solid transparent',
+        borderLeftWidth: 16,
+        borderRight: 'solid transparent',
+        borderRightWidth: 16,
+        borderTop: 'solid',
+        borderTopWidth: 16,
+        borderTopColor: useColorModeValue('white', 'gray.800'),
+        pos: 'absolute',
+        bottom: '-16px',
+        left: '50%',
+        transform: 'translateX(-50%)',
+      }}>
+      {children}
+    </Stack>
+  );
+};
+
+const TestimonialHeading = ({ children }: { children: ReactNode }) => {
+  return (
+    <Heading as={'h3'} fontSize={'xl'}>
+      {children}
+    </Heading>
+  );
+};
+
+const TestimonialText = ({ children }: { children: ReactNode }) => {
+  return (
+    <Text
+      textAlign={'center'}
+      color={useColorModeValue('gray.600', 'gray.400')}
+      fontSize={'sm'}>
+      {children}
+    </Text>
+  );
+};
+
+const TestimonialAvatar = ({
+  src,
+  name,
+  title,
+}: {
+  src: string;
+  name: string;
+  title: string;
+}) => {
+  return (
+    <Flex align={'center'} mt={8} direction={'column'}>
+      <Avatar src={src} mb={2} />
+      <Stack spacing={-1} align={'center'}>
+        <Text fontWeight={600}>{name}</Text>
+        <Text fontSize={'sm'} color={useColorModeValue('gray.600', 'gray.400')}>
+          {title}
+        </Text>
+      </Stack>
+    </Flex>
+  );
+};
+
+export default function WithSpeechBubbles() {
+  return (
+    <Box bg={useColorModeValue('gray.100', 'gray.700')}>
+      <Container maxW={'7xl'} py={16} as={Stack} spacing={12}>
+        <Stack spacing={0} align={'center'}>
+          <Heading>Our Top Notch Faculty</Heading>
+          <Text>We have been training students since 2019</Text>
+        </Stack>
+        <Stack
+          direction={{ base: 'column', md: 'row' }}
+          spacing={{ base: 10, md: 4, lg: 10 }}>
+          <Testimonial>
+            <TestimonialContent>
+             
+              <TestimonialText>
+              Full-stack developer and DevOps Architect.
+              
+              </TestimonialText>
+            </TestimonialContent>
+            <TestimonialAvatar
+              src={
+                'https://i.ibb.co/8dL6dMt/1556048207367.jpg'
+              }
+              name={'Daniyal Nagori'}
+              title={'CEO at Piaic'}
+            />
+            <Link
+            
+            href="https://www.linkedin.com/in/daniyalnagori/"
+        >
+           <Button
+            flex={1}
+            fontSize={'sm'}
+            rounded={'full'}
+            width={'full'}
+            bg={'blue.400'}
+            color={'white'}
+            boxShadow={
+              '0px 1px 25px -5px rgb(66 153 225 / 48%), 0 10px 10px -5px rgb(66 153 225 / 43%)'
+            }
+            _hover={{
+              bg: 'blue.500',
+            }}
+            _focus={{
+              bg: 'blue.500',
+            }}
+            >
+            Follow
+          </Button>
+           </Link>
+          </Testimonial>
+          <Testimonial>
+            <TestimonialContent>
+              
+              <TestimonialText>
+              CEO Panacloud and Panaverse,Full stack developer.
+
+              </TestimonialText>
+            </TestimonialContent>
+            <TestimonialAvatar
+              src={
+                'https://i.ibb.co/KV5n7Ch/1638368405154.jpg'
+              }
+              name={'Zia Khan'}
+              title={'CEO at Panacloud'}
+            />
+            <Link
+            
+            href="https://www.linkedin.com/in/ziaukhan/"
+        >
+          <Button
+            flex={1}
+            fontSize={'sm'}
+            rounded={'full'}
+            width={'full'}
+            bg={'blue.400'}
+            color={'white'}
+            boxShadow={
+              '0px 1px 25px -5px rgb(66 153 225 / 48%), 0 10px 10px -5px rgb(66 153 225 / 43%)'
+            }
+            _hover={{
+              bg: 'blue.500',
+            }}
+            _focus={{
+              bg: 'blue.500',
+            }}>
+            Follow
+          </Button>
+           </Link>
+          </Testimonial>
+         
+          <Testimonial>
+            <TestimonialContent>
+              
+              <TestimonialText>
+              Co-Founded Panacloud Pvt. Ltd. in 2012.
+
+              </TestimonialText>
+            </TestimonialContent>
+            <TestimonialAvatar
+              src={
+                'https://i.ibb.co/jwL1zsR/1562700934047.jpg'
+              }
+              name={'Hira Khan'}
+              title={'Co-Founder of Panacloud'}
+            />
+            <Link
+            
+            href="https://www.linkedin.com/in/hira-khan-76523540/"
+        >
+           
+           <Button
+            flex={1}
+            fontSize={'sm'}
+            rounded={'full'}
+            width={'full'}
+            bg={'blue.400'}
+            color={'white'}
+            boxShadow={
+              '0px 1px 25px -5px rgb(66 153 225 / 48%), 0 10px 10px -5px rgb(66 153 225 / 43%)'
+            }
+            _hover={{
+              bg: 'blue.500',
+            }}
+            _focus={{
+              bg: 'blue.500',
+            }}>
+            Follow
+          </Button>
+           </Link>
+          </Testimonial>
+        </Stack>
+      </Container>
+    </Box>
+  );
+}

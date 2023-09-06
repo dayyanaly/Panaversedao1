@@ -29,7 +29,7 @@ const Navbar: FC = () => {
                 boxShadow="md"
                 position={"fixed"}
                 top={0}
-                bg="#BEBC56"
+                bg="blue.400"
                 px={4}
             >
                 <Flex h={"100px"} alignItems={"center"} justifyContent={"space-between"}>
@@ -50,8 +50,8 @@ const Navbar: FC = () => {
                                         "https://i.ibb.co/PZZK5jn/Logo-png.png"
                                     }
                                     alt="logo"
-                                    height={90}
-                                    width={90}
+                                    height={50}
+                                    width={50}
                                 />
                             </Link>
                         </Flex>
@@ -67,12 +67,7 @@ const Navbar: FC = () => {
                                 color="white"
                                 fontWeight="semibold"
                                 transition="0.25s ease"
-                                _hover={{
-                                    textDecoration: "none",
-                                    transition: "0.25s ease",
-                                    bgGradient: "linear(to-r, #17fffb, #29e654)",
-                                    bgClip: "text"
-                                }}
+                               
                                 href="/"
                             >
                                 Home
@@ -84,12 +79,7 @@ const Navbar: FC = () => {
                                 color="white"
                                 fontWeight="semibold"
                                 transition="0.25s ease"
-                                _hover={{
-                                    textDecoration: "none",
-                                    transition: "0.25s ease",
-                                    bgGradient: "linear(to-r, #17fffb, #29e654)",
-                                    bgClip: "text"
-                                }}
+                               
                                 href="/courses"
                             >
                                 Courses
@@ -101,12 +91,7 @@ const Navbar: FC = () => {
                                 color="white"
                                 fontWeight="semibold"
                                 transition="0.25s ease"
-                                _hover={{
-                                    textDecoration: "none",
-                                    transition: "0.25s ease",
-                                    bgGradient: "linear(to-r, #17fffb, #29e654)",
-                                    bgClip: "text"
-                                }}
+                               
                                 href="/faculty"
                             >
                                 Faculty
@@ -122,28 +107,25 @@ const Navbar: FC = () => {
                         >
                             <Button
                                 variant={"solid"}
-                                bgGradient='linear(to-r, teal.500, green.500)'
+                                bgGradient='linear(to-r, blue.200, purple.500)'
                                 color={"gray.50"}
                                 _hover={{
                                     textDecoration: "none",
-                                    bgGradient: "linear(to-r, green.500, cyan.900)"
+                                    bgGradient: "linear(to-r, purple.500,blue.200)"
                                 }}
                                 size={"sm"}
                                 py={5}
                                 px={4}
                                 mr={4}
                             >
-                                PIAIC
+                               Apply
                             </Button>
                         </Link>
                     </Flex>
                     <IconButton
-                        color={"white"}
+                        color={"black"}
                         size={"lg"}
-                        _hover={{
-                            textDecoration: "none",
-                            bgGradient: "linear(to-r, green.500, cyan.900)"
-                        }}
+                        
                         variant="ghost"
                         icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
                         aria-label={"Open Menu"}
@@ -168,12 +150,7 @@ const Navbar: FC = () => {
                                 color="white"
                                 fontWeight="semibold"
                                 transition="0.25s ease"
-                                _hover={{
-                                    textDecoration: "none",
-                                    transition: "0.25s ease",
-                                    bgGradient: "linear(to-r, #17fffb, #29e654)",
-                                    bgClip: "text"
-                                }}
+                               
                                 href="/"
                             >
                                 Home
@@ -185,12 +162,8 @@ const Navbar: FC = () => {
                                 color="white"
                                 fontWeight="semibold"
                                 transition="0.25s ease"
-                                _hover={{
-                                    textDecoration: "none",
-                                    transition: "0.25s ease",
-                                    bgGradient: "linear(to-r, #17fffb, #29e654)",
-                                    bgClip: "text"
-                                }}
+                               
+                                
                                 href="/courses"
                             >
                                 Courses
@@ -202,12 +175,7 @@ const Navbar: FC = () => {
                                 color="white"
                                 fontWeight="semibold"
                                 transition="0.25s ease"
-                                _hover={{
-                                    textDecoration: "none",
-                                    transition: "0.25s ease",
-                                    bgGradient: "linear(to-r, #17fffb, #29e654)",
-                                    bgClip: "text"
-                                }}
+                               
                                 href="/faculty"
                             >
                                 Faculty
@@ -220,19 +188,18 @@ const Navbar: FC = () => {
                                 href="https://www.piaic.org/"
                             >
                                 <Button
-                                    variant={"solid"}
-                                    bgGradient='linear(to-r, teal.500, green.500)'
+                                    bgGradient='linear(to-r, blue.200, purple.500)'
                                     color={"gray.50"}
                                     _hover={{
                                         textDecoration: "none",
-                                        bgGradient: "linear(to-r, green.500, cyan.900)"
+                                        bgGradient: "linear(to-r, purple.500,blue.200)"
                                     }}
                                     size={"sm"}
                                     py={5}
                                     px={4}
                                     mr={4}
                                 >
-                                    PIAIC
+                              Apply
                                 </Button>
                             </Link>
                         </Stack>

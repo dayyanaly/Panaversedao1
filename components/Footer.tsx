@@ -1,330 +1,102 @@
 "use client";
-import { FC } from "react";
 import {
     Box,
-    chakra,
     Container,
     Link,
     SimpleGrid,
     Stack,
-    Image,
     Text,
-    VisuallyHidden,
-    useColorModeValue,
     Flex,
-} from '@chakra-ui/react';
-import { ReactNode } from 'react';
-import { FaFacebook, FaTwitter, FaYoutube, FaGithub } from 'react-icons/fa';
-
-const SocialButton = ({
-    children,
-    label,
-    href,
-}: {
-    children: ReactNode;
-    label: string;
-    href: string;
-}) => {
+    Tag,
+    useColorModeValue,
+    Img,
+  } from '@chakra-ui/react';
+  import { ReactNode } from 'react';
+  
+  const Logo = (props: any) => {
     return (
-        <chakra.button
-            bg={useColorModeValue('blackAlpha.100', 'whiteAlpha.100')}
-            rounded={'full'}
-            w={8}
-            h={8}
-            cursor={'pointer'}
-            as={'a'}
-            href={href}
-            display={'inline-flex'}
-            alignItems={'center'}
-            justifyContent={'center'}
-            transition={'background 0.3s ease'}
-            _hover={{
-                transition: "0.25s ease",
-                color: "black"
+      <Img
+        width={20}
+        src="https://i.ibb.co/PZZK5jn/Logo-png.png"
+      
+        
+      ></Img>
+    );
+  };
+  
+  const ListHeader = ({ children }: { children: ReactNode }) => {
+    return (
+      <Text fontWeight={'500'} fontSize={'lg'} mb={2}>
+        {children}
+      </Text>
+    );
+  };
+  
+  export default function LargeWithLogoCentered() {
+    return (
+      <Box
+ 
+        bg={useColorModeValue('blue.400', 'white')}
+        color={useColorModeValue('white', 'white')}>
+        <Container as={Stack} maxW={'6xl'} py={10}>
+          <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>
+            <Stack align={'flex-start'}>
+              
+              <Stack direction={'row'} align={'center'} spacing={2}>
+               
+               
+              </Stack>
+              
+            </Stack>
+            <Stack align={'flex-start'}>
+              <ListHeader>Company</ListHeader>
+              <Link href={"https://www.piaic.org/"}>About Us</Link>
+              <Link href={"https://www.panaverse.co/"}>Panaverse</Link>
+              <Link href={"https://geekflare.com/metaverse-jobs/"}>Careers</Link>
+              <Link href={"https://www.facebook.com/groups/piaic/?multi_permalinks=1306695543578221&notif_id=1686300902322774&notif_t=group_highlights&ref=notif"}>Contact Us</Link>
+              <Link href={"https://mail.saylaniwelfare.com/en/services/education/technical-education/piaic"}>Partners</Link>
+            </Stack>
+            <Stack align={'flex-start'}>
+              <ListHeader>Courses</ListHeader>
+             
+              <Link href={"https://www.piaic.org/artificial-inteligence"}>Artificial Intelligence</Link>
+              <Link href={"https://www.piaic.org/block-chain"}>Blockchain</Link>
+              <Link href={"https://www.piaic.org/cloud-native"}>Cloud Native Computing</Link>
+              <Link href={"https://www.piaic.org/iot"}>Iot</Link>
+            </Stack>
+            <Stack align={'flex-start'}>
+              <ListHeader>Follow Us</ListHeader>
+              <Link href={"https://www.facebook.com/piaic"}>Facebook</Link>
+              <Link href={"https://twitter.com/panaverse_edu?lang=en"}>Twitter</Link>
+              <Link href={"https://www.youtube.com/@panaverse"}>Youtube</Link>
+              <Link href={"https://github.com/panaverse"}>Github</Link>
+              <Link href={"https://www.linkedin.com/company/panaverse?originalSubdomain=pk"}>LinkedIn</Link>
+            </Stack>
+          </SimpleGrid>
+        </Container>
+        <Box py={10}>
+          <Flex
+            align={'center'}
+            _before={{
+              content: '""',
+              borderBottom: '1px solid',
+              borderColor: useColorModeValue('gray.200', 'gray.700'),
+              flexGrow: 1,
+              mr: 8,
             }}
-        >
-            <VisuallyHidden>{label}</VisuallyHidden>
-            {children}
-        </chakra.button>
-    );
-};
-
-const ListHeader = ({ children }: { children: ReactNode }) => {
-    return (
-        <Text fontWeight={'bolder'} fontSize={'lg'} mb={2}>
-            {children}
-        </Text>
-    );
-};
-
-const Footer: FC = () => {
-    return (
-        <Box
-            bg="#BEBC56"
-            color="white"
-        >
-            <Container as={Stack} maxW={'7xl'} py={10}>
-                <SimpleGrid
-                    pl="2"
-                    templateColumns={{ sm: '1fr 1fr', md: '2fr 2fr 2fr 2fr' }}
-                    pb={8}
-                    spacing={8}>
-                    <Stack spacing={6}>
-                        <Box>
-                            <Link href="https://www.panaverse.co/">
-                                <Image
-                                    w="150px"
-                                    src="https://i.ibb.co/PZZK5jn/Logo-png.png"
-                                    alt="Panaverse"
-                                />
-                            </Link>
-                        </Box>
-                        <Text fontSize={'sm'}>
-                            Copyright © 2023 by Panaverse
-                        </Text>
-                        <Stack
-                            direction={'row'}
-                            spacing={6}>
-                            <SocialButton label={'Facebook'} href="https://www.facebook.com/groups/panaverse">
-                                <FaFacebook />
-                            </SocialButton>
-                            <SocialButton label={'Twitter'} href="https://twitter.com/Panaverse_edu">
-                                <FaTwitter />
-                            </SocialButton>
-                            <SocialButton label={'YouTube'} href="https://www.youtube.com/@panaverse/">
-                                <FaYoutube />
-                            </SocialButton>
-                            <SocialButton label={'Github'} href="https://github.com/panaverse">
-                                <FaGithub />
-                            </SocialButton>
-                        </Stack>
-                    </Stack>
-                    <Stack align={'flex-start'}>
-                        <ListHeader>Courses</ListHeader>
-                        <Link
-                            _hover={{
-                                textDecoration: "none",
-                                transition: "0.25s ease",
-                                bgGradient: "linear(to-r, #17fffb, #29e654)",
-                                bgClip: "text"
-                            }}
-                            py={1}
-                            fontWeight="semibold"
-                            href="https://www.piaic.org/artificial-inteligence"
-                        >
-                            Artificial Intelligence
-                        </Link>
-                        <Link
-                            _hover={{
-                                textDecoration: "none",
-                                transition: "0.25s ease",
-                                bgGradient: "linear(to-r, #17fffb, #29e654)",
-                                bgClip: "text"
-                            }}
-                            py={1}
-                            fontWeight="semibold"
-                            href="https://www.piaic.org/cloud-native"
-                        >
-                            Cloud Native Computing
-                        </Link>
-                        <Link
-                            _hover={{
-                                textDecoration: "none",
-                                transition: "0.25s ease",
-                                bgGradient: "linear(to-r, #17fffb, #29e654)",
-                                bgClip: "text"
-                            }}
-                            py={1}
-                            fontWeight="semibold"
-                            href="https://www.piaic.org/block-chain"
-                        >
-                            BlockChain
-                        </Link>
-                        <Link
-                            _hover={{
-                                textDecoration: "none",
-                                transition: "0.25s ease",
-                                bgGradient: "linear(to-r, #17fffb, #29e654)",
-                                bgClip: "text"
-                            }}
-                            py={1}
-                            fontWeight="semibold"
-                            href="https://www.piaic.org/iot"
-                        >
-                            Internet of Things & AI
-                        </Link>
-                        <Link
-                            _hover={{
-                                textDecoration: "none",
-                                transition: "0.25s ease",
-                                bgGradient: "linear(to-r, #17fffb, #29e654)",
-                                bgClip: "text"
-                            }}
-                            py={1}
-                            fontWeight="semibold"
-                            href="https://www.panaverse.co/"
-                        >
-                            Web 3 & Metaverse
-                        </Link>
-                    </Stack>
-                    <Stack align={'flex-start'}>
-                        <ListHeader>PIAIC</ListHeader>
-                        <Link
-                            _hover={{
-                                textDecoration: "none",
-                                transition: "0.25s ease",
-                                bgGradient: "linear(to-r, #17fffb, #29e654)",
-                                bgClip: "text"
-                            }}
-                            py={1}
-                            fontWeight="semibold"
-                            href="https://www.facebook.com/groups/piaic/"
-                        >
-                            Help Center
-                        </Link>
-                        <Link
-                            _hover={{
-                                textDecoration: "none",
-                                transition: "0.25s ease",
-                                bgGradient: "linear(to-r, #17fffb, #29e654)",
-                                bgClip: "text"
-                            }}
-                            py={1}
-                            fontWeight="semibold"
-                            href="https://www.piaic.com/"
-                        >
-                            Website
-                        </Link>
-                        <Link
-                            _hover={{
-                                textDecoration: "none",
-                                transition: "0.25s ease",
-                                bgGradient: "linear(to-r, #17fffb, #29e654)",
-                                bgClip: "text"
-                            }}
-                            py={1}
-                            fontWeight="semibold"
-                            href="https://www.facebook.com/piaic"
-                        >
-                            Announcements
-                        </Link>
-                        <Link
-                            _hover={{
-                                textDecoration: "none",
-                                transition: "0.25s ease",
-                                bgGradient: "linear(to-r, #17fffb, #29e654)",
-                                bgClip: "text"
-                            }}
-                            py={1}
-                            fontWeight="semibold"
-                            href="https://www.youtube.com/playlist?list=PLF32E4w-uhaP0SVwqlC8De-En-4CEQnAk"
-                        >
-                            Bootcamp 2020
-                        </Link>
-                        <Link
-                            _hover={{
-                                textDecoration: "none",
-                                transition: "0.25s ease",
-                                bgGradient: "linear(to-r, #17fffb, #29e654)",
-                                bgClip: "text"
-                            }}
-                            py={1}
-                            fontWeight="semibold"
-                            href="https://www.youtube.com/@certifiedunicorndeveloperi6307/featured"
-                        >
-                            Bootcamp 2021
-                        </Link>
-                    </Stack>
-                    <Stack align={'flex-start'}>
-                        <ListHeader>About</ListHeader>
-                        <Link
-                            _hover={{
-                                textDecoration: "none",
-                                transition: "0.25s ease",
-                                bgGradient: "linear(to-r, #17fffb, #29e654)",
-                                bgClip: "text"
-                            }}
-                            py={1}
-                            fontWeight="semibold"
-                            href="https://www.piaic.org/about"
-                        >
-                            President Of Pakistan
-                        </Link>
-                        <Link
-                            _hover={{
-                                textDecoration: "none",
-                                transition: "0.25s ease",
-                                bgGradient: "linear(to-r, #17fffb, #29e654)",
-                                bgClip: "text"
-                            }}
-                            py={1}
-                            fontWeight="semibold"
-                            href="https://www.saylaniwelfare.com/en/services/education/technical-education/piaic"
-                        >
-                            Saylani Welfare Trust
-                        </Link>
-                        <Link
-                            _hover={{
-                                textDecoration: "none",
-                                transition: "0.25s ease",
-                                bgGradient: "linear(to-r, #17fffb, #29e654)",
-                                bgClip: "text"
-                            }}
-                            py={1}
-                            fontWeight="semibold"
-                            href="https://twitter.com/ziakhan"
-                        >
-                            Sir Zia Khan (COO)
-                        </Link>
-                        <Link
-                            _hover={{
-                                textDecoration: "none",
-                                transition: "0.25s ease",
-                                bgGradient: "linear(to-r, #17fffb, #29e654)",
-                                bgClip: "text"
-                            }}
-                            py={1}
-                            fontWeight="semibold"
-                            href="https://www.panacloud.ai/"
-                        >
-                            Panacloud
-                        </Link>
-                        <Link
-                            _hover={{
-                                textDecoration: "none",
-                                transition: "0.25s ease",
-                                bgGradient: "linear(to-r, #17fffb, #29e654)",
-                                bgClip: "text"
-                            }}
-                            py={1}
-                            fontWeight="semibold"
-                            href="https://www.piaic.org/wit"
-                        >
-                            WIT
-                        </Link>
-                    </Stack>
-                </SimpleGrid>
-            </Container>
-            <hr />
-            <Flex
-                py="8"
-                alignItems="center"
-                justifyContent="center"
-            >
-                <Link
-                    href="https://github.com/dayyanaly"
-                    fontWeight="semibold"
-                    _hover={{
-                        textDecoration: "none",
-                        transition: "0.25s ease",
-                        color: "black",
-                    }}
-                >
-                    <Box>DESIGNED BY DAYYAN ALI KHAN</Box>
-                </Link>
-            </Flex>
+            _after={{
+              content: '""',
+              borderBottom: '1px solid',
+              borderColor: useColorModeValue('gray.200', 'gray.700'),
+              flexGrow: 1,
+              ml: 8,
+            }}>
+            <Logo />
+          </Flex>
+          <Text pt={6} fontSize={'sm'} textAlign={'center'}>
+            © 2022 Panaverse. All rights reserved
+          </Text>
         </Box>
+      </Box>
     );
-};
-
-export default Footer;
+  }
